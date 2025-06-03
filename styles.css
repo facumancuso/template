@@ -1,0 +1,1085 @@
+/* CSS adaptado para gestión desde panel de administrador */
+
+/* Variables CSS para contenido editable */
+:root {
+    /* Colores del sitio */
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #ff6b6b;
+    --text-color: #333;
+    --background-color: #fff;
+    --section-bg-color: #f8f9fa;
+    
+    /* Tipografía */
+    --main-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --hero-title-size: clamp(2rem, 5vw, 3.5rem);
+    --section-title-size: clamp(1.8rem, 4vw, 2.5rem);
+    
+    /* Espaciado */
+    --section-padding: 4rem 0;
+    --container-max-width: 1200px;
+    
+    /* Logo y marca */
+    --logo-size: 1.5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--main-font);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header editable */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Logo editable */
+.logo {
+    font-size: var(--logo-size);
+    font-weight: bold;
+}
+
+.logo img {
+    max-height: 40px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+main {
+    min-height: calc(100vh - 200px);
+}
+
+/* Hero section editable */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), var(--hero-bg-image, url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><rect fill="%23f0f0f0" width="1000" height="600"/><text x="50%" y="50%" text-anchor="middle" fill="%23999" font-size="40" font-family="Arial">Hero Image Placeholder</text></svg>'));
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 8rem 0;
+}
+
+.hero h1 {
+    font-size: var(--hero-title-size);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+/* Secciones editables */
+.section {
+    padding: var(--section-padding);
+}
+
+.section:nth-child(even) {
+    background-color: var(--section-bg-color);
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: var(--section-title-size);
+    color: #2c3e50;
+}
+
+/* Contenido editable */
+.editable-content {
+    min-height: 20px;
+}
+
+.editable-content:empty:before {
+    content: "Contenido editable - Haga clic para editar";
+    color: #999;
+    font-style: italic;
+}
+
+/* Cards de servicios */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Espacios para AdSense editables */
+.ad-container {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    position: relative;
+}
+
+.ad-container.active {
+    border-color: var(--primary-color);
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.ad-container:empty:before {
+    content: "Espacio publicitario - AdSense";
+    color: #999;
+    font-style: italic;
+}
+
+/* Diferentes tamaños de ads */
+.ad-banner {
+    min-height: 90px; /* 728x90 */
+}
+
+.ad-rectangle {
+    min-height: 250px; /* 300x250 */
+}
+
+.ad-skyscraper {
+    min-height: 600px; /* 160x600 */
+    max-width: 160px;
+    margin: 0 auto;
+}
+
+/* Footer editable */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: #ecf0f1;
+}
+
+.footer-section a {
+    color: #bdc3c7;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+/* Panel de Administración moderno y responsivo */
+.admin-panel {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    display: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.admin-panel.show {
+    display: block;
+}
+
+.admin-panel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.admin-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-title::before {
+    content: "⚙️";
+    font-size: 1rem;
+}
+
+.admin-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.user-indicator {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.user-indicator::before {
+    content: "👤";
+    font-size: 0.8rem;
+}
+
+.admin-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.admin-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(5px);
+}
+
+.admin-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.admin-btn.primary {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.admin-btn.primary:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.logout-btn {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logout-btn::before {
+    content: "🚪";
+    font-size: 0.8rem;
+}
+
+.logout-btn:hover {
+    background: #e55a5a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+}
+
+.admin-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Editor inline mejorado con botones de guardado */
+.editable-section {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.editable-section.editing {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+    border-radius: 8px;
+    background: rgba(102, 126, 234, 0.05);
+}
+
+.edit-overlay {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 100;
+    display: none;
+    gap: 0.5rem;
+}
+
+.editable-section:hover .edit-overlay,
+.editable-section.editing .edit-overlay {
+    display: flex;
+}
+
+.edit-btn, .save-btn, .cancel-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    min-width: auto;
+}
+
+.edit-btn::before {
+    content: "✏️";
+    font-size: 0.7rem;
+}
+
+.save-btn {
+    background: #4caf50;
+}
+
+.save-btn::before {
+    content: "💾";
+    font-size: 0.7rem;
+}
+
+.cancel-btn {
+    background: var(--accent-color);
+}
+
+.cancel-btn::before {
+    content: "❌";
+    font-size: 0.7rem;
+}
+
+.edit-btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.save-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.cancel-btn:hover {
+    background: #e55a5a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+/* Contenido editable mejorado */
+.editable-content {
+    min-height: 20px;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.editable-content.editing {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.editable-content:empty:before {
+    content: "Contenido editable - Haga clic para editar";
+    color: #999;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.editable-content.editing:empty:before {
+    display: none;
+}
+
+/* Input inline para edición */
+.inline-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+}
+
+.inline-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* Etiquetas de sección */
+.section-label {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.editable-section:hover .section-label,
+.editable-section.editing .section-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estados de guardado */
+.saving {
+    position: relative;
+    pointer-events: none;
+}
+
+.saving::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.save-success {
+    background: rgba(76, 175, 80, 0.1) !important;
+    border-color: #4caf50 !important;
+    animation: saveSuccess 2s ease-in-out;
+}
+
+@keyframes saveSuccess {
+    0%, 100% { 
+        background: rgba(76, 175, 80, 0.1);
+        border-color: #4caf50;
+    }
+    50% { 
+        background: rgba(76, 175, 80, 0.2);
+        border-color: #45a049;
+    }
+}
+
+/* Notificaciones de estado */
+.status-notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1003;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: all 0.4s ease;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.status-notification.show {
+    transform: translateX(0);
+}
+
+.status-notification.success {
+    background: linear-gradient(135deg, #4caf50, #45a049);
+}
+
+.status-notification.error {
+    background: linear-gradient(135deg, var(--accent-color), #e55a5a);
+}
+
+.status-notification.info {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.status-notification::before {
+    font-size: 1.2rem;
+}
+
+.status-notification.success::before {
+    content: "✅";
+}
+
+.status-notification.error::before {
+    content: "❌";
+}
+
+.status-notification.info::before {
+    content: "ℹ️";
+}
+
+/* Modal de configuración */
+.config-modal {
+    display: none;
+    position: fixed;
+    z-index: 1002;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.config-modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.config-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.config-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+/* Estilos del Modal de Login */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--accent-color);
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.login-btn, .save-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover, .save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.error-message, .success-message {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: none;
+}
+
+.error-message {
+    color: var(--accent-color);
+    background-color: #ffebee;
+}
+
+.success-message {
+    color: #4caf50;
+    background-color: #e8f5e8;
+}
+
+.error-message.show, .success-message.show {
+    display: block;
+}
+
+/* Indicador de usuario logueado */
+.user-indicator {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Vista previa de imágenes */
+.image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Color picker personalizado */
+.color-input {
+    width: 60px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+}
+
+/* Responsive Design mejorado */
+@media (max-width: 1024px) {
+    .admin-controls {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.5rem;
+    }
+    
+    .admin-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero {
+        padding: 4rem 0;
+    }
+    
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .admin-panel {
+        padding: 0.75rem 0;
+    }
+    
+    .admin-header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .admin-user-info {
+        justify-content: center;
+    }
+    
+    .admin-controls {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.5rem;
+    }
+    
+    .admin-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .user-indicator {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .logout-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .admin-toggle {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+        font-size: 1.1rem;
+    }
+    
+    .edit-overlay {
+        top: -10px;
+        right: -10px;
+        flex-direction: column;
+    }
+    
+    .edit-btn, .save-btn, .cancel-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .section-label {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .status-notification {
+        top: 70px;
+        right: 15px;
+        left: 15px;
+        max-width: none;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .config-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .config-modal-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-panel-container {
+        padding: 0 15px;
+    }
+    
+    .admin-controls {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-btn {
+        padding: 0.6rem;
+        justify-content: center;
+    }
+    
+    .admin-header {
+        gap: 0.5rem;
+    }
+    
+    .admin-title {
+        font-size: 1.1rem;
+    }
+    
+    .user-indicator {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .edit-overlay {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        flex-direction: row;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 0.75rem;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .editable-section.editing .edit-overlay {
+        display: flex;
+    }
+    
+    .editable-section:hover .edit-overlay {
+        display: none;
+    }
+    
+    .edit-btn, .save-btn, .cancel-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Performance optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+    loading: lazy;
+}
+
+/* Core Web Vitals optimizations */
+.hero, .section {
+    contain: layout style paint;
+}
+
+/* Animaciones suaves */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estados de carga */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
